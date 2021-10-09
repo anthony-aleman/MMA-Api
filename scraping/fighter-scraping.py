@@ -20,7 +20,7 @@ jump_links = driver.find_elements_by_class_name('b-statistics__nav-item')
 fighters = []
 curr_link = 0
 for i in range(65, 91):
-    if jump_links[curr_link] == chr(i):
+    if jump_links[curr_link].text == chr(i):
         jump_links[curr_link].click()
         curr_link += 1
     count = 11
@@ -38,3 +38,4 @@ for i in range(65, 91):
 df = pd.DataFrame(fighters, columns=['FIRST', 'LAST', 'NICKNAME', 'HT', 'WT', 'REACH', 'STANCE', 'W', 'L', 'D', 'BELT'])
 
 # TODO: transfer all of the data into a pandas dataframe, then transfer it into a csv file
+df.to_csv('fighters.csv')
