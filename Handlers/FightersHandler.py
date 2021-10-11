@@ -3,7 +3,7 @@ from flask.json import jsonify
 import pandas as pd
 import math
 
-class FighterId(Resource):
+class FighterRecordId(Resource):
     def get(self, id):
         df = pd.read_csv('./scraping/fighters.csv')
         print(df.columns)
@@ -20,7 +20,7 @@ class FighterId(Resource):
                 'losses': str(losses),
                 'draws': str(draw)}, 200
 
-class FighterName(Resource):
+class FighterRecordName(Resource):
     def get(self, name):
         df = pd.read_csv('./scraping/fighters.csv')
         name = name.capitalize()
